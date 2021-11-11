@@ -16,18 +16,18 @@ ReactDOM.render(<App />, document.getElementById("root"));
 // console.log(array1.reduce(reducer, 5));
 // // expected output: 15
 
-function f1(arg) {
-  console.log("f1", arg);
-  return arg;
-}
-function f2(arg) {
-  console.log("f2", arg);
-  return arg;
-}
-function f3(arg) {
-  console.log("f3", arg);
-  return arg;
-}
+// function f1(arg) {
+//   console.log("f1", arg);
+//   return arg;
+// }
+// function f2(arg) {
+//   console.log("f2", arg);
+//   return arg;
+// }
+// function f3(arg) {
+//   console.log("f3", arg);
+//   return arg;
+// }
 
 // // todo
 // // 依次执行f123函数,并且每一个函数接受上一个函数的返回值
@@ -53,19 +53,19 @@ function f3(arg) {
 //   return funcs.reduce((a, b) => (...args) => a(b(...args)));
 // }
 
-let res = compose(f1, f2, f3)('coboy')
+// let res = compose(f1, f2, f3)('coboy')
 
-function compose(...fns) {
-    return fns.reduce((prev, curr) => {
-        console.log('prev', prev, 'curr', curr)
-        // prev && prev();
-        // curr && curr();
-        return (a) => {
-            // console.log('a', a)
-            return prev(curr(a))
-        }
-        // return (...args) => {
-        //     console.log('args', args)
-        // }
-    })
-}
+// function compose(...fns) {
+//     return fns.reduce((prev, curr) => {
+//         console.log('prev', prev, 'curr', curr)
+//         // prev && prev();
+//         // curr && curr();
+//         return (a) => {
+//             // console.log('a', a)
+//             return prev(curr(a))
+//         }
+//         // return (...args) => {
+//         //     console.log('args', args)
+//         // }
+//     })
+// }
