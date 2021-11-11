@@ -12,6 +12,10 @@ export default function createStore(reducer) {
 
     function subscribe(listener) {
         currentListeners.push(listener)
+        return () => {
+            const index = currentListeners.indexOf(listener)
+            currentListeners.splice(index, 1)
+        }
     }
 
     dispatch({ type: 'gfhcodskfl354'})
