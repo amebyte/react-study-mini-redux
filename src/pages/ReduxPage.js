@@ -25,6 +25,7 @@ export default class ReduxPage extends Component {
     // }, 1000);
 
     store.dispatch((dispatch, getState) => {
+      console.log('pre-state', getState())
       setTimeout(() => {
         // console.log("now ", getState()); //sy-log
         dispatch({type: "ADD", payload: 1});
