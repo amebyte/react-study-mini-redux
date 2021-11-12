@@ -17,7 +17,7 @@ function countReducer(state = 0, action) {
 }
 
 // 创建一个数据仓库
-const store = createStore(countReducer, applyMiddleware(thunk, logger))
+const store = createStore(countReducer, applyMiddleware(thunk, promise, logger))
 
 export default store
 
