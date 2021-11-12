@@ -1,6 +1,6 @@
 // import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunk from "redux-thunk";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 import {createStore, applyMiddleware} from "../coRedux/";
 
 // 定义修改规则
@@ -19,3 +19,17 @@ function countReducer(state = 0, action) {
 const store = createStore(countReducer, applyMiddleware(thunk, logger));
 
 export default store;
+
+function logger({ dispatch, getState }) {
+    return (next) => (action) => {
+        console.log("--------------------")
+        console.log(action.type + "执行了！")
+        const prevState = getState()
+        console.log("prev state", prevState)
+        const r = next(action)
+        const nextState = getState()
+        console.log("next state", nextState)
+        console.log("--------------------")
+        return r
+    }
+}
