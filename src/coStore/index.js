@@ -1,6 +1,7 @@
 // import {applyMiddleware, combineReducers, createStore} from "redux";
 // import thunk from 'redux-thunk'
 // import logger from "redux-logger";
+import isPromise from "is-promise";
 import { createStore, applyMiddleware } from '../coRedux/'
 
 // 定义修改规则
@@ -43,3 +44,9 @@ function thunk({ dispatch, getState }) {
       return next(action)
   }
 }
+
+function promise({ dispatch, getState }) {
+    return (next) => (action) => {
+        return isPromise(action) ? action.then(dispatch) : next(action)
+    }
+  }
